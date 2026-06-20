@@ -24,6 +24,40 @@
 
 <main>
 
+  <section class="section wrap" id="overview">
+    <div class="section__head">
+      <h2>Global temperature anomaly</h2>
+      <span class="tag">LIVE-LOADED DATA</span>
+    </div>
+    <div class="chart-block">
+      <div id="chart-global-temp"></div>
+      <div class="chart-legend">
+        <span><i style="background:var(--fog);opacity:.55"></i> Annual anomaly</span>
+        <span><i style="background:var(--ember)"></i> 5-year moving average</span>
+      </div>
+      <div class="chart-source">
+        Data: <a href="https://berkeleyearth.org/data/" target="_blank" rel="noopener">Berkeley Earth</a>,
+        Global Land + Ocean monthly average (licensed CC BY-NC 4.0)
+        Anomalies relative to the Jan 1951–Dec 1980 average
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__value">38<sup>°C</sup></div>
+        <div class="stat__label">Peak slab surface temp., south façade</div>
+        <div class="stat__source">simulated, FDM model</div>
+      </div>
+      <div class="stat">
+        <div class="stat__value">0.0034<sup>s</sup></div>
+        <div class="stat__label">Stable timestep, explicit Euler scheme</div>
+        <div class="stat__source">simulated, this thesis</div>
+      </div>
+    </div>
+  </section>
+
+
+
 <section class="hero wrap">
   <p class="eyebrow">Really dramatic climate analysis</p>
   <h1>The planet is getting warmer, we are getting roasted</h1>
