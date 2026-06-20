@@ -1,1 +1,1 @@
-Thank you for checking it out
+Welcome to the repository
