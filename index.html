@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Climate Atlas</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="stripes" role="img" aria-label="Warming stripes: a gradient from cool blue to alarming red, representing rising global temperatures"></div>
+
+<header class="site-header">
+  <nav class="nav wrap">
+    <a href="index.html" class="nav__brand">Climate Atlas <span>v0.0.1 (06/2026)</span></a>
+    <div class="nav__links">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="data.html">Methodology</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero wrap">
+  <p class="eyebrow">Really dramatic climate analysis</p>
+  <h1>The planet is getting warmer, we are getting roasted</h1>
+  <p class="lede">Global warming is caused by humans, not by solar radiation</p>
+  <div class="hero__actions">
+    <a href="data.html" class="btn btn--primary">View methodology</a>
+    <a href="#overview" class="btn btn--ghost">See sample metrics</a>
+  </div>
+</section>
+
+<section class="section wrap" id="overview">
+  <div class="section__head">
+    <h2>Headline figures</h2>
+    <span class="tag">SAMPLE DATA (STATIC)</span>
+  </div>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat__value">+1.2<sup>°C</sup></div>
+      <div class="stat__label">Global mean temp. vs. 1850–1900 baseline</div>
+      <div class="stat__source">placeholder, ref. IPCC AR6</div>
+    </div>
+    <div class="stat">
+      <div class="stat__value">420<sup>ppm</sup></div>
+      <div class="stat__label">Atmospheric CO₂ concentration</div>
+      <div class="stat__source">placeholder, ref. NOAA</div>
+    </div>
+    <div class="stat">
+      <div class="stat__value">38<sup>°C</sup></div>
+      <div class="stat__label">Peak slab surface temp., south façade</div>
+      <div class="stat__source">simulated, FDM model</div>
+    </div>
+    <div class="stat">
+      <div class="stat__value">0.0034<sup>s</sup></div>
+      <div class="stat__label">Stable timestep, explicit Euler scheme</div>
+      <div class="stat__source">simulated, this thesis</div>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="section__head">
+    <h2>What this template covers</h2>
+    <span class="tag">3 modules</span>
+  </div>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card__index">01 — Monitoring</div>
+      <h3>Sensor &amp; weather data</h3>
+      <p>A slot for time-series panels: EPW weather files, on-site loggers, or simulation output. Drop a chart library in and point it at this card grid.</p>
+    </div>
+    <div class="card">
+      <div class="card__index">02 — Simulation</div>
+      <h3>Thermal modeling results</h3>
+      <p>Surface temperature fields, energy balance terms, stability diagnostics — anything coming out of a Grasshopper/Python pipeline fits here.</p>
+    </div>
+    <div class="card">
+      <div class="card__index">03 — Comparison</div>
+      <h3>Strategy benchmarking</h3>
+      <p>Side-by-side cards for comparing mitigation strategies, material choices, or vernacular vs. mechanical cooling approaches.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Note:</strong> all figures on this page are illustrative placeholders for layout purposes, not measured or sourced data. Replace before anyone makes a decision based on them.
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer wrap">
+  <span>© 2026 Climate Atlas — not a forecast</span>
+  <a href="data.html">Methodology →</a>
+</footer>
+
+</body>
+</html>
