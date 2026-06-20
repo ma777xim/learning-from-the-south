@@ -356,6 +356,78 @@ button:focus-visible {
 
 .callout strong { color: var(--paper); }
 
+/* ---------- chart ---------- */
+.chart-block {
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 20px 12px;
+  margin-block: 8px 0;
+}
+
+#chart-global-temp {
+  position: relative;
+  width: 100%;
+  height: 320px;
+}
+
+#chart-global-temp svg {
+  display: block;
+  overflow: visible;
+}
+
+.chart-tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: var(--bg-deep);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--paper);
+  white-space: nowrap;
+  transform: translate(-50%, -100%);
+  transition: opacity 0.1s ease;
+}
+
+.chart-error {
+  color: var(--fog);
+  font-size: 0.85rem;
+  text-align: center;
+  padding-top: 120px;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: var(--fog);
+  padding: 10px 4px 16px;
+}
+
+.chart-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chart-legend i {
+  display: inline-block;
+  width: 14px;
+  height: 2px;
+}
+
+.chart-source {
+  font-size: 0.72rem;
+  color: #5c6470;
+  padding: 0 4px 4px;
+}
+
+.chart-source a { color: var(--ice); }
+.chart-source a:hover { color: var(--paper); }
+
 /* ---------- footer ---------- */
 .site-footer {
   padding-block: 28px;
