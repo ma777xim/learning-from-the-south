@@ -48,11 +48,8 @@
   /* type tokens */
   --font-display: 'Space Grotesk', sans-serif;
   --font-display2: 'Roboto Mono', monospace;
-  --font-body: 'IBM Plex Sans', sans-serif;
-  --font-body2: 'Inter', sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
-  --font-mono2: 'Roboto Mono', monospace;
-
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
   --radius: 8px;
 }
 
@@ -474,6 +471,16 @@ button:focus-visible {
   color: var(--paper); 
 }
 
+.live-circle {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--magma5);
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
 /* ---------- responsive ---------- */
 @media (max-width: 640px) {
   .nav__links { gap: 16px; font-size: 0.85rem; }
@@ -488,5 +495,5 @@ button:focus-visible {
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  transform: translateY(calc(var(--scroll) * 50px));
+  transform: translateY(calc(var(--scroll) * 10px));
 }
