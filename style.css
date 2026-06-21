@@ -63,7 +63,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg-deep);
   color: var(--paper);
-  font-family: var(--font-body2);
+  font-family: var(--font-body);
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
 }
@@ -80,7 +80,7 @@ img { max-width: 100%; display: block; }
 /* ---------- focus & motion ---------- */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--magma5);
+  outline: 2px solid var(--magma6);
   outline-offset: 5px;
 }
 
@@ -124,7 +124,7 @@ button:focus-visible {
 }
 
 .nav__brand {
-  font-family: var(--font-display2);
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.05rem;
   letter-spacing: 0.02em;
@@ -134,7 +134,7 @@ button:focus-visible {
 }
 
 .nav__brand span {
-  font-family: var(--font-mono2);
+  font-family: var(--font-mono);
   font-size: 0.7rem;
   color: var(--magma5);
   font-weight: 500;
@@ -155,7 +155,7 @@ button:focus-visible {
 
 .nav__links a:hover,
 .nav__links a[aria-current="page"] {
-  color: var(--magma5);
+  color: var(--magma7);
 }
 
 .nav__links a[aria-current="page"]::after {
@@ -163,7 +163,7 @@ button:focus-visible {
   position: absolute;
   left: 0; right: 0; bottom: -2px;
   height: 2px;
-  background: var(--magma7);
+  background: var(--magma6);
 }
 
 /* ---------- hero ---------- */
@@ -173,7 +173,7 @@ button:focus-visible {
 }
 
 .eyebrow {
-  font-family: var(--font-mono2);
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -184,7 +184,7 @@ button:focus-visible {
 .hero h1 {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(2rem, 6vw, 4rem);
+  font-size: clamp(2rem, 8vw, 4rem);
   line-height: 1.08;
   max-width: 16ch;
   margin-bottom: 20px;
