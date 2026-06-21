@@ -155,7 +155,7 @@ button:focus-visible {
 
 .nav__links a:hover,
 .nav__links a[aria-current="page"] {
-  color: var(--magma7);
+  color: var(--paper);
 }
 
 .nav__links a[aria-current="page"]::after {
@@ -219,7 +219,7 @@ button:focus-visible {
   color: var(--paper);
 }
 
-.btn--primary:hover { background: var(--magma5); }
+.btn--primary:hover { background: var(--paper); }
 
 .btn--ghost {
   color: var(--paper);
@@ -470,7 +470,7 @@ button:focus-visible {
   color: var(--magma4);
 }
 
-.site-footer a:hover { color: var(--fog); }
+.site-footer a:hover { color: var(--paper); }
 
 /* ---------- responsive ---------- */
 @media (max-width: 640px) {
