@@ -495,5 +495,5 @@ button:focus-visible {
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  transform: translateY(calc(var(--scroll) * -2px));
+  transform: translateY(calc(var(--scroll) * -3px));
 }
