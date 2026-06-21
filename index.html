@@ -31,7 +31,6 @@
       <source src="https://assets.science.nasa.gov/content/dam/science/esd/climate/video_items/Wildfires%20and%20CC%20hero%20video%20half%20speed.mp4" 
     type="video/mp4">
   </video>
-
   <h1>Getting toasted</h1>
   <p class="lede">The planet is getting warmer. Global warming is caused by humans, not by solar radiation</p>
   <div class="hero__actions">
@@ -43,7 +42,7 @@
 <section class="section wrap" id="overview">
   <div class="section__head">
     <h2>Global temperature anomaly</h2>
-    <span class="tag">LIVE</span>
+    <span class="tag">🔴 LIVE</span>
   </div>
   <div class="chart-block">
     <div id="chart-global-temp"></div>
@@ -135,6 +134,13 @@
   <span>© 2026 Learning from the South</span>
   <a href="data.html">Methodology →</a>
 </footer>
+
+/* Scroll-linked CSS variable for parallax effects */
+<script>
+  window.addEventListener('scroll', () => {
+    document.documentElement.style.setProperty('--scroll', window.scrollY);
+  });
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script src="js/dataAnnualTemperatureGlobalBerkeley.js"></script>
