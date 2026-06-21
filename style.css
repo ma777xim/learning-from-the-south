@@ -496,4 +496,6 @@ button:focus-visible {
   object-fit: cover;
   z-index: -1;
   transform: translateY(calc(var(--scroll) * -3px));
+  opacity: calc(1 - var(--scroll) / 200);
+
 }
