@@ -80,7 +80,7 @@ img { max-width: 100%; display: block; }
 /* ---------- focus & motion ---------- */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--magma6);
+  outline: 2px solid var(--magma5);
   outline-offset: 5px;
 }
 
@@ -98,9 +98,9 @@ button:focus-visible {
     var(--magma2) 12.5%,
     var(--magma3) 25%,
     var(--magma4) 40%,
-    var(--magma5) 55%,
-    var(--magma6) 70%,
-    var(--magma7) 87.5%,
+    var(--magma5) 60%,
+    var(--magma6) 75%,
+    var(--magma7) 88.5%,
     var(--magma8) 100%
   );
 }
@@ -136,7 +136,7 @@ button:focus-visible {
 .nav__brand span {
   font-family: var(--font-mono2);
   font-size: 0.7rem;
-  color: var(--magma6);
+  color: var(--magma5);
   font-weight: 500;
 }
 
@@ -155,7 +155,7 @@ button:focus-visible {
 
 .nav__links a:hover,
 .nav__links a[aria-current="page"] {
-  color: var(--magma6);
+  color: var(--magma5);
 }
 
 .nav__links a[aria-current="page"]::after {
@@ -214,8 +214,8 @@ button:focus-visible {
 }
 
 .btn--primary {
-  background: var(--magma6);
-  border-color: var(--magma6);
+  background: var(--magma5);
+  border-color: var(--magma5);
   color: var(--paper);
 }
 
@@ -375,7 +375,7 @@ button:focus-visible {
 }
 
 .callout {
-  border-left: 3px solid var(--magma6);
+  border-left: 3px solid var(--magma5);
   background: var(--bg-panel);
   padding: 18px 20px;
   font-size: 0.92rem;
