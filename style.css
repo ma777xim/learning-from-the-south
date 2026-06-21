@@ -182,16 +182,16 @@ button:focus-visible {
 }
 
 .hero h1 {
-  font-family: var(--font-display2);
-  font-weight: 700;
-  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 6vw, 4rem);
   line-height: 1.08;
   max-width: 16ch;
   margin-bottom: 20px;
 }
 
 .hero p.lede {
-  color: var(--magma8);
+  color: var(--paper);
   font-size: 1.05rem;
   max-width: 56ch;
   margin-bottom: 32px;
@@ -210,22 +210,22 @@ button:focus-visible {
   font-size: 0.92rem;
   font-weight: 500;
   border: 1px solid var(--line);
-  transition: border-color 0.25s ease, background 0.15s ease;
+  transition: border-color 0.25s ease, background 0.45s ease;
 }
 
 .btn--primary {
-  background: var(--magma7);
-  border-color: var(--magma7);
-  color: var(--magma8);
+  background: var(--magma6);
+  border-color: var(--magma6);
+  color: var(--paper);
 }
 
 .btn--primary:hover { background: var(--magma5); }
 
 .btn--ghost {
-  color: var(--magma8);
+  color: var(--paper);
 }
 
-.btn--ghost:hover { border-color: var(--magma8); }
+.btn--ghost:hover { border-color: var(--paper); }
 
 /* ---------- stat row ---------- */
 .stats {
@@ -245,10 +245,10 @@ button:focus-visible {
 }
 
 .stat__value {
-  font-family: var(--font-mono2);
+  font-family: var(--font-mono);
   font-size: 1.7rem;
   font-weight: 600;
-  color: var(--magma8);
+  color: var(--paper);
 }
 
 .stat__value sup {
@@ -259,7 +259,7 @@ button:focus-visible {
 .stat__label {
   margin-top: 6px;
   font-size: 0.82rem;
-  color: var(--magma8);
+  color: var(--paper);
 }
 
 .stat__source {
@@ -289,9 +289,9 @@ button:focus-visible {
 }
 
 .section__head .tag {
-  font-family: var(--font-mono2);
+  font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--magma8);
+  color: var(--paper);
 }
 
 .grid-3 {
@@ -379,12 +379,12 @@ button:focus-visible {
   background: var(--bg-panel);
   padding: 18px 20px;
   font-size: 0.92rem;
-  color: var(--magma8);
+  color: var(--paper);
   border-radius: 0 var(--radius) var(--radius) 0;
   margin-block: 32px;
 }
 
-.callout strong { color: var(--magma8); }
+.callout strong { color: var(--paper); }
 
 /* ---------- chart ---------- */
 .chart-block {
@@ -415,7 +415,7 @@ button:focus-visible {
   padding: 6px 10px;
   font-family: var(--font-mono2);
   font-size: 0.75rem;
-  color: var(--magma8);
+  color: var(--paper);
   white-space: nowrap;
   transform: translate(-50%, -100%);
   transition: opacity 0.1s ease;
