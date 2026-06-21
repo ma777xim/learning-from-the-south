@@ -155,7 +155,7 @@ button:focus-visible {
 
 .nav__links a:hover,
 .nav__links a[aria-current="page"] {
-  color: var(--magma8);
+  color: var(--magma6);
 }
 
 .nav__links a[aria-current="page"]::after {
