@@ -184,7 +184,7 @@ button:focus-visible {
 .hero h1 {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(2rem, 8vw, 6rem);
+  font-size: clamp(3rem, 7vw, 5rem);
   line-height: 1.08;
   max-width: 16ch;
   margin-bottom: 20px;
@@ -488,5 +488,5 @@ button:focus-visible {
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  transform: translateY(calc(var(--scroll) * .9px));
+  transform: translateY(calc(var(--scroll) * 5px));
 }
