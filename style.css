@@ -283,7 +283,7 @@ button:focus-visible {
 }
 
 .section__head h2 {
-  font-family: var(--font-display2);
+  font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -315,13 +315,13 @@ button:focus-visible {
 }
 
 .card h3 {
-  font-family: var(--font-display2);
+  font-family: var(--font-display);
   font-size: 1.08rem;
   margin-bottom: 10px;
 }
 
 .card p {
-  color: var(--magma8);
+  color: var(--paper);
   font-size: 0.92rem;
 }
 
@@ -348,20 +348,20 @@ button:focus-visible {
   font-size: 0.74rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--magma8);
+  color: var(--paper);
   background: var(--magma2);
 }
 
 .data-table td.num {
-  font-family: var(--font-mono2);
-  color: var(--magma8);
+  font-family: var(--font-mono);
+  color: var(--paper);
 }
 
 .data-table tr:last-child td { border-bottom: none; }
 
 .flag {
   display: inline-block;
-  font-family: var(--font-mono2);
+  font-family: var(--font-mono);
   font-size: 0.7rem;
   padding: 2px 8px;
   border-radius: 999px;
@@ -375,8 +375,8 @@ button:focus-visible {
 }
 
 .callout {
-  border-left: 3px solid var(--magma7);
-  background: var(--magma1);
+  border-left: 3px solid var(--magma6);
+  background: var(--bg-panel);
   padding: 18px 20px;
   font-size: 0.92rem;
   color: var(--magma8);
@@ -388,7 +388,7 @@ button:focus-visible {
 
 /* ---------- chart ---------- */
 .chart-block {
-  background: var(--magma1);
+  background: var(--bg-deep);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 24px 20px 12px;
@@ -422,7 +422,7 @@ button:focus-visible {
 }
 
 .chart-error {
-  color: var(--magma8);
+  color: var(--ember);
   font-size: 0.85rem;
   text-align: center;
   padding-top: 120px;
@@ -433,7 +433,7 @@ button:focus-visible {
   gap: 20px;
   flex-wrap: wrap;
   font-size: 0.78rem;
-  color: var(--magma8);
+  color: var(--paper);
   padding: 10px 4px 16px;
 }
 
@@ -451,12 +451,12 @@ button:focus-visible {
 
 .chart-source {
   font-size: 0.72rem;
-  color: var(--magma4);
+  color: var(--fog);
   padding: 0 4px 4px;
 }
 
 .chart-source a { color: var(--magma4); }
-.chart-source a:hover { color: var(--magma8); }
+.chart-source a:hover { color: var(--paper); }
 
 /* ---------- footer ---------- */
 .site-footer {

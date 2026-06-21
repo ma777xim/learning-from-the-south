@@ -110,7 +110,7 @@
       });
   }
 
-  d3.csv('data/berkeley_global_tavg_annual.csv', d3.autoType).then(rows => {
+  d3.csv('dataAnnualTemperatureGlobalBerkeley.csv', d3.autoType).then(rows => {
     data = rows
       .filter(d => d.annual_anomaly_c !== null && !Number.isNaN(d.annual_anomaly_c))
       .map(d => ({
@@ -120,7 +120,7 @@
       }));
     render();
   }).catch(err => {
-    container.innerHTML = '<p class="chart-error">Could not load temperature data. Check that data/berkeley_global_tavg_annual.csv is present next to this page.</p>';
+    container.innerHTML = '<p class="chart-error">Could not load temperature data. Check if DataWorldAnnualBerkeleyGlobalTempAvg.csv is present next to this page.</p>';
     console.error(err);
   });
 
