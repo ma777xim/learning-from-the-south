@@ -15,7 +15,7 @@ def loadingBar(numerator, denominator):
     if percentage >= 11 and percentage <= 49:
         return("did you drink enough water?")    
     if percentage >= 50 and percentage <= 75:
-        return("promising, more than halfway through...") 
+        return("DRINK WATER...") 
     if percentage >= 80 and percentage <= 94:
         return("omg, its getting there...") 
     if percentage >= 95 and percentage <= 98:
@@ -29,9 +29,15 @@ def br(lineLength, arrayLength):
     char = '_'
     for hi in range(arrayLength):
         print(f"\n{char * lineLength * 10}\n\n")
+        
+def cat():
+    print(f"\n──────▄▀▄─────▄▀▄")
+    print(f"─────▄█░░▀▀▀▀▀░░█▄")
+    print(f"─▄▄──█░░░░░░░░░░░█──▄▄")
+    print(f"█▄▄█─█░░▀░░┬░░▀░░█─█▄▄█")
+
 
 # sol data
-
 #<dummy>
 #------------------------------------
 class MockBranch:
@@ -139,6 +145,8 @@ for index, temps in enumerate(T_grid):
 if len(set(temps)) == 1:
     print("// Lists O.K.")
     print("// All list lengths are identical ^^")
+    print(cat())
+
 else:
     print("NOTE: List lengths are not identical")
     
@@ -149,7 +157,7 @@ br(7, 1)
 resultsArchive = []
 print(f"results archive:\n{resultsArchive}\n")
 if len(resultsArchive) == 0:
-    print('// Archive is empty af.')
+    print('// Archive is empty af -.-')
 else:
     print(f'// Archive has {len(resultsArchive)} values in the following manner:')
     for firstItems in resultsArchive[:6]: #first 4 items
@@ -161,7 +169,7 @@ br(7, 1)
 # 4. MAIN LOOP
 for h in range(num_hours):
     print(f"simulation covers {num_hours} hours, now at {int(h)}.")
-    print(loadingBar(h+4, num_hours))
+    print(loadingBar(h+1, num_hours))
 
     # calc lateral cond without stability explosion
     for step in range(sub_steps):
@@ -229,6 +237,22 @@ if resultsArchive:
 else:
     print("ERROR: resultsArchive is empty — simulation loop failed before first archive")
     T_surface = Noneprint(f"Output temperatures for hour {outputHourOfDay}: {T_surface}")
+    
+br(7,1)
+# human query
+
+# 1. cell (r,c) across all hours
+r, c = 4, 2
+flat_idx = r * grid_size + c
+for h in range(num_hours):
+    print(f"hour {h:03d}: cell ({r},{c}) = {resultsArchive[h][flat_idx]:.4f}°C")
+
+# 2. all cells at a specific hour
+h = 5
+for flat_idx, temp in enumerate(resultsArchive[h]):
+    r = flat_idx // grid_size
+    c = flat_idx % grid_size
+    print(f"cell ({r:02d},{c:02d}) flat[{flat_idx:03d}]: {temp:.4f}°C")
 
 
 
