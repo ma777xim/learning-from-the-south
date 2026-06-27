@@ -32,7 +32,7 @@ def br(lineLength, arrayLength):
 
 # sol data
 
-#gh input
+#<dummy>
 #------------------------------------
 class MockBranch:
     def __init__(self, data):
@@ -46,13 +46,15 @@ class MockDataTree:
         self._branches = data
         self.BranchCount = len(data)
     def Branch(self, i):
-        return MockBranch(self._branches[i])
-    
+        return MockBranch(self._branches[i])    
 #-------------------------------------
+#</dummy>
 
 num_cells = 100
-num_hours = 8
+num_hours = 2
 
+#<dummy
+#-------------------------------------
 # 2. generate raw dummy data using those constants
 raw = [
     [100 + cell * 2 + hour * 10 for hour in range(num_hours)]
@@ -61,6 +63,8 @@ raw = [
 
 # 3. wrap in mock tree
 radiation_tree = MockDataTree(raw)
+#-------------------------------------
+#</dummy>
 
 # 4. build solar_matrix from tree (identical to real Ladybug path)
 solar_matrix = [
