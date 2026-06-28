@@ -9,7 +9,7 @@ def loadingBar(numerator, denominator):
     if percentage == 0:
         return("initialising...")
     if percentage > 0 and percentage <= 2:
-            return("init successful, let's see how it goes")
+        return("init successful, let's see how it goes")
     if percentage >= 3 and percentage <= 10:
         return("looks well until now :D")
     if percentage >= 11 and percentage <= 49:
@@ -56,7 +56,7 @@ class MockDataTree:
 #</dummy>
 
 num_cells = 100
-num_hours = 2
+num_hours = 168
 
 #<dummy
 #-------------------------------------
@@ -85,7 +85,7 @@ assert grid_size ** 2 == num_cells, f"solar_matrix not square: {num_cells} cells
 
 # 6. mat props and sim params
 T_air = float(20.0)
-T_init = T_air  # ← this line is missing
+T_init = 0  # ← this line is missing
 print(f"initial temperature T_init: {T_init} °C")
 # etc.
 
