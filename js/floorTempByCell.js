@@ -1,0 +1,177 @@
+const DATA = {"hours": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], "solar_a": [0, 148.04449379864187, 285.99999999999994, 404.4650788387051, 495.3665309646989, 552.509572637347, 572.0, 552.509572637347, 495.36653096469894, 404.46507883870515, 285.99999999999994, 148.044493798642, 7.00497969112286e-14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "solar_b": [0, 203.3282418325403, 392.79999999999995, 555.5030873001516, 680.3495572130549, 758.831329132692, 785.6, 758.831329132692, 680.349557213055, 555.5030873001517, 392.79999999999995, 203.3282418325405, 9.620825254101607e-14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "temp_a": [18.80191359259537, 18.791191610632975, 19.669524519221913, 21.13678901068158, 22.900044033476142, 24.68423551356403, 26.24347220943772, 27.371766373573696, 27.912229878143446, 27.76387276686414, 26.88535702801135, 25.295300826255854, 23.06899209109323, 21.279767569306365, 19.842383306205676, 18.68802285581626, 17.76120400803031, 17.01723993937574, 16.42016687707955, 15.941059259137349, 15.556663919315426, 15.24829529424049, 15.000943240828722, 14.802553463133764], "temp_b": [18.80191359259537, 19.140132564910022, 20.616094523793308, 22.829623496093564, 25.390761982536326, 27.934079141320524, 30.133815654269064, 31.718312798097365, 32.48233289254323, 32.296108109684525, 31.11024491474317, 28.9559467468686, 25.940378332902224, 23.534429332502807, 21.614336802356423, 20.08164501102639, 18.857965078224574, 17.880844259318465, 17.100500502349952, 16.477235362442713, 15.979380913927296, 15.581668330555326, 15.263930225247538, 15.01006765057626], "cell_a": 5, "cell_b": 94, "grid_size": 10};
+
+const W = document.getElementById('chart-container').clientWidth - 40;
+const MARGIN = { top: 10, right: 60, bottom: 40, left: 55 };
+const H_TEMP  = 300;
+const H_SOLAR = 120;
+
+const innerW = W - MARGIN.left - MARGIN.right;
+const innerHT = H_TEMP - MARGIN.top - MARGIN.bottom;
+const innerHS = H_SOLAR - MARGIN.top - MARGIN.bottom;
+
+// ── x scale shared ──────────────────────────────────────────────
+const xScale = d3.scaleLinear()
+  .domain([0, 23])
+  .range([0, innerW]);
+
+// ── TEMPERATURE CHART ────────────────────────────────────────────
+const svgT = d3.select('#temp-chart')
+  .attr('width', W).attr('height', H_TEMP);
+
+const gT = svgT.append('g').attr('transform', `translate(${MARGIN.left},${MARGIN.top})`);
+
+const allTemps = [...DATA.temp_a, ...DATA.temp_b];
+const yT = d3.scaleLinear()
+  .domain([d3.min(allTemps) - 1, d3.max(allTemps) + 1])
+  .range([innerHT, 0]);
+
+// grid lines
+gT.append('g').attr('class','grid')
+  .selectAll('line').data(yT.ticks(5)).join('line')
+  .attr('x1', 0).attr('x2', innerW)
+  .attr('y1', d => yT(d)).attr('y2', d => yT(d))
+  .attr('stroke', 'var(--grid)').attr('stroke-width', 1);
+
+// area fills
+const areaA = d3.area()
+  .x((_, i) => xScale(i))
+  .y0(innerHT).y1(d => yT(d))
+  .curve(d3.curveCatmullRom.alpha(0.5));
+
+const areaB = d3.area()
+  .x((_, i) => xScale(i))
+  .y0(innerHT).y1(d => yT(d))
+  .curve(d3.curveCatmullRom.alpha(0.5));
+
+gT.append('path').datum(DATA.temp_a)
+  .attr('fill', 'var(--cell-a)').attr('fill-opacity', 0.06)
+  .attr('d', areaA);
+
+gT.append('path').datum(DATA.temp_b)
+  .attr('fill', 'var(--cell-b)').attr('fill-opacity', 0.06)
+  .attr('d', areaB);
+
+// lines
+const lineA = d3.line().x((_, i) => xScale(i)).y(d => yT(d)).curve(d3.curveCatmullRom.alpha(0.5));
+const lineB = d3.line().x((_, i) => xScale(i)).y(d => yT(d)).curve(d3.curveCatmullRom.alpha(0.5));
+
+const pathA = gT.append('path').datum(DATA.temp_a)
+  .attr('fill','none').attr('stroke','var(--cell-a)').attr('stroke-width', 1.8)
+  .attr('d', lineA);
+
+const pathB = gT.append('path').datum(DATA.temp_b)
+  .attr('fill','none').attr('stroke','var(--cell-b)').attr('stroke-width', 1.8)
+  .attr('d', lineB);
+
+// animated draw
+[pathA, pathB].forEach(p => {
+  const len = p.node().getTotalLength();
+  p.attr('stroke-dasharray', len).attr('stroke-dashoffset', len)
+   .transition().duration(2500).ease(d3.easeCubicInOut)
+   .attr('stroke-dashoffset', 0);
+});
+
+// T=20 reference
+gT.append('line')
+  .attr('x1', 0).attr('x2', innerW)
+  .attr('y1', yT(20)).attr('y2', yT(20))
+  .attr('stroke', 'var(--muted)').attr('stroke-width', 0.5)
+  .attr('stroke-dasharray', '3,4');
+gT.append('text')
+  .attr('x', innerW + 4).attr('y', yT(20) + 4)
+  .attr('font-size', '0.55rem').attr('fill', 'var(--muted)')
+  .text('T_air');
+
+// axes
+gT.append('g').call(
+  d3.axisLeft(yT).ticks(5).tickSize(0).tickFormat(d => d.toFixed(1) + '°')
+).call(g => g.select('.domain').remove())
+ .call(g => g.selectAll('text').attr('fill','var(--muted)').attr('font-size','0.6rem').attr('dx','-4'));
+
+gT.append('g').attr('transform', `translate(0,${innerHT})`).call(
+  d3.axisBottom(xScale).ticks(24).tickFormat(h => h + 'h').tickSize(0)
+).call(g => g.select('.domain').attr('stroke','var(--border)'))
+ .call(g => g.selectAll('text').attr('fill','var(--muted)').attr('font-size','0.6rem').attr('dy','12'));
+
+// ── SOLAR CHART ──────────────────────────────────────────────────
+const svgS = d3.select('#solar-chart')
+  .attr('width', W).attr('height', H_SOLAR);
+
+const gS = svgS.append('g').attr('transform', `translate(${MARGIN.left},${MARGIN.top})`);
+
+const yS = d3.scaleLinear()
+  .domain([0, d3.max(DATA.solar_b) * 1.1])
+  .range([innerHS, 0]);
+
+const areaSol = d3.area()
+  .x((_, i) => xScale(i)).y0(innerHS).y1(d => yS(d))
+  .curve(d3.curveCatmullRom.alpha(0.5));
+
+const lineSol = d3.line()
+  .x((_, i) => xScale(i)).y(d => yS(d))
+  .curve(d3.curveCatmullRom.alpha(0.5));
+
+gS.append('path').datum(DATA.solar_b)
+  .attr('fill', 'var(--solar)').attr('fill-opacity', 0.08)
+  .attr('d', areaSol);
+
+const pathSol = gS.append('path').datum(DATA.solar_b)
+  .attr('fill','none').attr('stroke','var(--solar)').attr('stroke-width', 1.2)
+  .attr('stroke-dasharray','4,3')
+  .attr('d', lineSol);
+
+const lenS = pathSol.node().getTotalLength();
+pathSol.attr('stroke-dasharray', `4,3 ${lenS}`).attr('stroke-dashoffset', lenS)
+  .transition().duration(1800).ease(d3.easeCubicInOut)
+  .attr('stroke-dashoffset', 0);
+
+gS.append('g').call(
+  d3.axisLeft(yS).ticks(3).tickSize(0).tickFormat(d => d.toFixed(0))
+).call(g => g.select('.domain').remove())
+ .call(g => g.selectAll('text').attr('fill','var(--muted)').attr('font-size','0.6rem').attr('dx','-4'));
+
+gS.append('g').attr('transform', `translate(0,${innerHS})`).call(
+  d3.axisBottom(xScale).ticks(24).tickFormat(h => h + 'h').tickSize(0)
+).call(g => g.select('.domain').attr('stroke','var(--border)'))
+ .call(g => g.selectAll('text').attr('fill','var(--muted)').attr('font-size','0.6rem').attr('dy','12'));
+
+// ── CROSSHAIR + TOOLTIP ──────────────────────────────────────────
+const tooltip = document.getElementById('tooltip');
+const crossT = gT.append('line').attr('y1',0).attr('y2',innerHT)
+  .attr('stroke','var(--muted)').attr('stroke-width',0.5).attr('opacity',0);
+const crossS = gS.append('line').attr('y1',0).attr('y2',innerHS)
+  .attr('stroke','var(--muted)').attr('stroke-width',0.5).attr('opacity',0);
+const dotA = gT.append('circle').attr('r',3).attr('fill','var(--cell-a)').attr('opacity',0);
+const dotB = gT.append('circle').attr('r',3).attr('fill','var(--cell-b)').attr('opacity',0);
+const dotS = gS.append('circle').attr('r',3).attr('fill','var(--solar)').attr('opacity',0);
+
+svgT.on('mousemove', function(event) {
+  const [mx] = d3.pointer(event, gT.node());
+  const h = Math.round(xScale.invert(mx));
+  if (h < 0 || h > 23) return;
+  const x = xScale(h);
+
+  crossT.attr('x1',x).attr('x2',x).attr('opacity',1);
+  crossS.attr('x1',x).attr('x2',x).attr('opacity',1);
+  dotA.attr('cx',x).attr('cy',yT(DATA.temp_a[h])).attr('opacity',1);
+  dotB.attr('cx',x).attr('cy',yT(DATA.temp_b[h])).attr('opacity',1);
+  dotS.attr('cx',x).attr('cy',yS(DATA.solar_b[h])).attr('opacity',1);
+
+  const cRect = document.getElementById('chart-container').getBoundingClientRect();
+  const ex = event.clientX - cRect.left;
+  const ey = event.clientY - cRect.top;
+
+  tooltip.style.opacity = '1';
+  tooltip.style.left = (ex + 16) + 'px';
+  tooltip.style.top  = (ey - 10) + 'px';
+  tooltip.innerHTML = `
+    <div class="t-hour">hour ${h}:00</div>
+    <div class="t-a">cell[005]  ${DATA.temp_a[h].toFixed(3)}°C</div>
+    <div class="t-b">cell[094]  ${DATA.temp_b[h].toFixed(3)}°C</div>
+    <div class="t-sol">solar     ${DATA.solar_b[h].toFixed(1)} W/m²</div>
+  `;
+}).on('mouseleave', function() {
+  tooltip.style.opacity = '0';
+  crossT.attr('opacity',0); crossS.attr('opacity',0);
+  dotA.attr('opacity',0); dotB.attr('opacity',0); dotS.attr('opacity',0);
+});
