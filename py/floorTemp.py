@@ -36,7 +36,6 @@ def cat():
     print(f"─▄▄──█░░░░░░░░░░░█──▄▄")
     print(f"█▄▄█─█░░▀░░┬░░▀░░█─█▄▄█")
 
-
 # sol data
 #<dummy>
 #------------------------------------
@@ -103,6 +102,8 @@ print(f"mat thermal conductivity: {thermalConductivity}")
 T_ground = float(10)
 print(f"\nground temp T_ground: {T_ground}")
 outputHourOfDay = int(14)
+h_conv = float(10.0)  # W/m²·K — typical indoor natural convection
+print(f"natural convection: {h_conv}")
 
 if outputHourOfDay + 1 < 12:
     print(f"output hour of day: {outputHourOfDay}am (hour no. {outputHourOfDay})")
@@ -197,7 +198,7 @@ for h in range(num_hours):
                 # Boundary Gains & Losses
                 q_solar = I_sol * absorptionCoefficient * A_cell
                 print(f"Solar heat gain q_solar: {q_solar}")
-                q_conv = heatCapacity * A_cell * (T_air - T_curr)
+                q_conv = h_conv * A_cell * (T_air - T_curr)
                 print(f"Convective heat loss q_conv: {q_conv}")
                 q_ground = (thermalConductivity / (thickness * 0.5)) * A_cell * (T_ground - T_curr)
                 print(f"Ground heat loss q_ground: {q_ground}")
