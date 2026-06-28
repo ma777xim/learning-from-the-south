@@ -147,7 +147,7 @@ const dotS = gS.append('circle').attr('r',3).style('fill','var(--solar)').attr('
 
 svgT.on('mousemove', function(event) {
   const [mx] = d3.pointer(event, gT.node());
-  const h = Math.round(xScale.invert(mx));
+  const h = Math.max(0, Math.min(23, Math.round(xScale.invert(mx))));
   if (h < 0 || h > 23) return;
   const x = xScale(h);
 
