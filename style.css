@@ -502,6 +502,8 @@ button:focus-visible {
   white-space: nowrap;
   transition: opacity 0.1s ease;
   min-width: 160px;
+  z-index: 100;
+  opacity: 0;
 }
 
  .chart-tooltip .t-hour {
