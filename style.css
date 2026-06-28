@@ -46,10 +46,10 @@
   --inferno8: #f0f920;  /*glow*/
 
   /* type tokens */
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-display2: 'Roboto Mono', monospace;
+  --font-display: 'IBM Plex Mono', sans-serif;
+  --font-display2: 'IBM Plex Mono', monospace;
   --font-body: 'Inter', sans-serif;
-  --font-mono: 'Roboto Mono', monospace;
+  --font-mono: 'IBM Plex Mono', monospace;
   --radius: 8px;
 
   /*floorThermalCalculator*/
@@ -60,7 +60,7 @@
   --border:  #1f1f2e;
   --grid:    #1a1a24;
   --text:    #c8c8d8;
-  --muted:   #4a4a60;
+  --paper:   #4a4a60;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -180,16 +180,16 @@ button:focus-visible {
 }
 
 .title-block h1 {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 0.7rem;
     letter-spacing: 0.2em;
-    color: var(--muted);
+    color: var(--paper);
     text-transform: uppercase;
     margin-bottom: 0.4rem;
   }
 
   .title-block h2 {
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-body);
     font-weight: 300;
     font-size: 1.6rem;
     color: var(--text);
@@ -199,7 +199,7 @@ button:focus-visible {
    .meta {
     font-family: 'Space Mono', monospace;
     font-size: 0.65rem;
-    color: var(--muted);
+    color: var(--paper);
     text-align: right;
     line-height: 1.9;
   }
@@ -219,7 +219,7 @@ button:focus-visible {
     gap: 0.6rem;
     font-family: 'Space Mono', monospace;
     font-size: 0.65rem;
-    color: var(--text);
+    color: var(--paper);
   }
 
   .legend-swatch {
@@ -365,7 +365,7 @@ button:focus-visible {
     font-family: 'Space Mono', monospace;
     font-size: 0.6rem;
     letter-spacing: 0.15em;
-    color: var(--muted);
+    color: var(--paper);
     text-transform: uppercase;
     margin-bottom: 0.6rem;
   }
@@ -502,13 +502,12 @@ button:focus-visible {
   font-size: 0.75rem;
   color: var(--paper);
   white-space: nowrap;
-  transform: translate(-50%, -100%);
   transition: opacity 0.1s ease;
   min-width: 160px;
 }
 
  .chart-tooltip .t-hour {
-    color: var(--muted);
+    color: var(--paper);
     margin-bottom: 0.3rem;
     font-size: 0.58rem;
   }
