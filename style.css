@@ -561,7 +561,7 @@ button:focus-visible {
   flex-wrap: wrap;
   gap: 12px;
   font-size: 0.8rem;
-  color: var(--magma4);
+  color: var(--magma5);
 }
 
 .site-footer a:hover { 
