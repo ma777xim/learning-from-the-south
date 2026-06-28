@@ -51,6 +51,16 @@
   --font-body: 'Inter', sans-serif;
   --font-mono: 'Roboto Mono', monospace;
   --radius: 8px;
+
+  /*floorThermalCalculator*/
+  --cell-a:  #4ecdc4;
+  --cell-b:  #ff6b35;
+  --solar:   #f5c542;
+  --surface: #13131a;
+  --border:  #1f1f2e;
+  --grid:    #1a1a24;
+  --text:    #c8c8d8;
+  --muted:   #4a4a60;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -494,7 +504,18 @@ button:focus-visible {
   white-space: nowrap;
   transform: translate(-50%, -100%);
   transition: opacity 0.1s ease;
+  min-width: 160px;
 }
+
+ .chart-tooltip .t-hour {
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+    font-size: 0.58rem;
+  }
+
+  .chart-tooltip .t-a { color: var(--cell-a); }
+  .chart-tooltip .t-b { color: var(--cell-b); }
+  .chart-tooltip .t-sol { color: var(--solar); }
 
 .chart-error {
   color: var(--ember);
