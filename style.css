@@ -169,6 +169,60 @@ button:focus-visible {
   background: var(--magma6);
 }
 
+.title-block h1 {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .title-block h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+   .meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.9;
+  }
+
+  /* ---------- legend ---------- */
+
+  .legend {
+    display: flex;
+    gap: 2rem;
+    padding: 1.2rem 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+   .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text);
+  }
+
+  .legend-swatch {
+    width: 24px;
+    height: 2px;
+  }
+
+  .legend-swatch.dashed {
+    background: repeating-linear-gradient(
+      90deg, currentColor 0, currentColor 4px, transparent 4px, transparent 8px
+    );
+  }
+
 /* ---------- hero ---------- */
 .hero {
   padding-block: 64px 56px;
@@ -297,6 +351,15 @@ button:focus-visible {
   color: var(--paper);
 }
 
+.section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -409,6 +472,15 @@ button:focus-visible {
   overflow: visible;
 }
 
+#chart-container {
+    padding: 1.5rem 2.5rem 0;
+    position: relative;
+  }
+
+  svg text {
+    font-family: var(--font-mono)
+  }
+
 .chart-tooltip {
   position: absolute;
   pointer-events: none;
@@ -416,7 +488,7 @@ button:focus-visible {
   border: 1px solid var(--line);
   border-radius: 4px;
   padding: 6px 10px;
-  font-family: var(--font-mono2);
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--paper);
   white-space: nowrap;
