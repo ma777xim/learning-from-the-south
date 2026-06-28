@@ -30,7 +30,7 @@ gT.append('g').attr('class','grid')
   .selectAll('line').data(yT.ticks(5)).join('line')
   .attr('x1', 0).attr('x2', innerW)
   .attr('y1', d => yT(d)).attr('y2', d => yT(d))
-  .attr('stroke', 'var(--grid)').attr('stroke-width', 1);
+  .style('stroke', 'var(--grid)').attr('stroke-width', .25);
 
 // area fills
 const areaA = d3.area()
@@ -44,11 +44,11 @@ const areaB = d3.area()
   .curve(d3.curveCatmullRom.alpha(0.5));
 
 gT.append('path').datum(DATA.temp_a)
-  .attr('fill', 'var(--cell-a)').attr('fill-opacity', 0.06)
+  .style('fill', 'var(--cell-a)').attr('fill-opacity', 0.06)
   .attr('d', areaA);
 
 gT.append('path').datum(DATA.temp_b)
-  .attr('fill', 'var(--cell-b)').attr('fill-opacity', 0.06)
+  .style('fill', 'var(--cell-b)').attr('fill-opacity', 0.06)
   .attr('d', areaB);
 
 // lines
@@ -56,11 +56,11 @@ const lineA = d3.line().x((_, i) => xScale(i)).y(d => yT(d)).curve(d3.curveCatmu
 const lineB = d3.line().x((_, i) => xScale(i)).y(d => yT(d)).curve(d3.curveCatmullRom.alpha(0.5));
 
 const pathA = gT.append('path').datum(DATA.temp_a)
-  .attr('fill','none').attr('stroke','var(--cell-a)').attr('stroke-width', 1.8)
+  .style('fill','none').style('stroke','var(--cell-a)').attr('stroke-width', 1.8)
   .attr('d', lineA);
 
 const pathB = gT.append('path').datum(DATA.temp_b)
-  .attr('fill','none').attr('stroke','var(--cell-b)').attr('stroke-width', 1.8)
+  .style('fill','none').style('stroke','var(--cell-b)').attr('stroke-width', 1.8)
   .attr('d', lineB);
 
 // animated draw
@@ -75,23 +75,23 @@ const pathB = gT.append('path').datum(DATA.temp_b)
 gT.append('line')
   .attr('x1', 0).attr('x2', innerW)
   .attr('y1', yT(20)).attr('y2', yT(20))
-  .attr('stroke', 'var(--muted)').attr('stroke-width', 0.5)
+  .style('stroke', 'var(--paper)').attr('stroke-width', 0.5)
   .attr('stroke-dasharray', '3,4');
 gT.append('text')
   .attr('x', innerW + 4).attr('y', yT(20) + 4)
-  .attr('font-size', '0.55rem').attr('fill', 'var(--muted)')
+  .attr('font-size', '0.55rem').style('fill', 'var(--paper)')
   .text('T_air');
 
 // axes
 gT.append('g').call(
   d3.axisLeft(yT).ticks(5).tickSize(0).tickFormat(d => d.toFixed(1) + '°')
 ).call(g => g.select('.domain').remove())
- .call(g => g.selectAll('text').attr('fill','var(--muted)').attr('font-size','0.6rem').attr('dx','-4'));
+ .call(g => g.selectAll('text').style('fill','var(--paper)').attr('font-size','0.6rem').attr('dx','-4'));
 
 gT.append('g').attr('transform', `translate(0,${innerHT})`).call(
   d3.axisBottom(xScale).ticks(24).tickFormat(h => h + 'h').tickSize(0)
-).call(g => g.select('.domain').attr('stroke','var(--border)'))
- .call(g => g.selectAll('text').attr('fill','var(--muted)').attr('font-size','0.6rem').attr('dy','12'));
+).call(g => g.select('.domain').style('stroke','var(--border)'))
+ .call(g => g.selectAll('text').style('fill','var(--paper)').attr('font-size','0.6rem').attr('dy','12'));
 
 // ── SOLAR CHART ──────────────────────────────────────────────────
 const svgS = d3.select('#solar-chart')
@@ -112,11 +112,11 @@ const lineSol = d3.line()
   .curve(d3.curveCatmullRom.alpha(0.5));
 
 gS.append('path').datum(DATA.solar_b)
-  .attr('fill', 'var(--solar)').attr('fill-opacity', 0.08)
+  .style('fill', 'var(--solar)').attr('fill-opacity', 0.08)
   .attr('d', areaSol);
 
 const pathSol = gS.append('path').datum(DATA.solar_b)
-  .attr('fill','none').attr('stroke','var(--solar)').attr('stroke-width', 1.2)
+  .style('fill','none').style('stroke','var(--solar)').attr('stroke-width', 1.2)
   .attr('stroke-dasharray','4,3')
   .attr('d', lineSol);
 
@@ -128,22 +128,22 @@ pathSol.attr('stroke-dasharray', `4,3 ${lenS}`).attr('stroke-dashoffset', lenS)
 gS.append('g').call(
   d3.axisLeft(yS).ticks(3).tickSize(0).tickFormat(d => d.toFixed(0))
 ).call(g => g.select('.domain').remove())
- .call(g => g.selectAll('text').attr('fill','var(--muted)').attr('font-size','0.6rem').attr('dx','-4'));
+ .call(g => g.selectAll('text').style('fill','var(--paper)').attr('font-size','0.6rem').attr('dx','-4'));
 
 gS.append('g').attr('transform', `translate(0,${innerHS})`).call(
   d3.axisBottom(xScale).ticks(24).tickFormat(h => h + 'h').tickSize(0)
-).call(g => g.select('.domain').attr('stroke','var(--border)'))
- .call(g => g.selectAll('text').attr('fill','var(--muted)').attr('font-size','0.6rem').attr('dy','12'));
+).call(g => g.select('.domain').style('stroke','var(--border)'))
+ .call(g => g.selectAll('text').style('fill','var(--paper)').attr('font-size','0.6rem').attr('dy','12'));
 
 // ── CROSSHAIR + TOOLTIP ──────────────────────────────────────────
 const tooltip = document.getElementById('chart-tooltip');
 const crossT = gT.append('line').attr('y1',0).attr('y2',innerHT)
-  .attr('stroke','var(--muted)').attr('stroke-width',0.5).attr('opacity',0);
+  .style('stroke','var(--paper)').attr('stroke-width',0.5).attr('opacity',0);
 const crossS = gS.append('line').attr('y1',0).attr('y2',innerHS)
-  .attr('stroke','var(--muted)').attr('stroke-width',0.5).attr('opacity',0);
-const dotA = gT.append('circle').attr('r',3).attr('fill','var(--cell-a)').attr('opacity',0);
-const dotB = gT.append('circle').attr('r',3).attr('fill','var(--cell-b)').attr('opacity',0);
-const dotS = gS.append('circle').attr('r',3).attr('fill','var(--solar)').attr('opacity',0);
+  .style('stroke','var(--paper)').attr('stroke-width',0.5).attr('opacity',0);
+const dotA = gT.append('circle').attr('r',3).style('fill','var(--cell-a)').attr('opacity',0);
+const dotB = gT.append('circle').attr('r',3).style('fill','var(--cell-b)').attr('opacity',0);
+const dotS = gS.append('circle').attr('r',3).style('fill','var(--solar)').attr('opacity',0);
 
 svgT.on('mousemove', function(event) {
   const [mx] = d3.pointer(event, gT.node());
