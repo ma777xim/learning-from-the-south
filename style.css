@@ -46,10 +46,9 @@
   --inferno8: #f0f920;  /*glow*/
 
   /* type tokens */
-  --font-display: 'IBM Plex Mono', sans-serif;
-  --font-display2: 'IBM Plex Mono', monospace;
+  --font-display: 'Inter', sans-serif;
   --font-body: 'Inter', sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
+  --font-mono: 'Roboto Mono', monospace;
   --radius: 8px;
 
   /*floorThermalCalculator*/

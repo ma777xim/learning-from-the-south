@@ -16,7 +16,7 @@
     <h2>24h Surface Temperature Response</h2>
   </div>
   <div class="meta">
-    material: concrete &nbsp; |&nbsp; location: interior
+    material: concrete &nbsp; |&nbsp; location: interior<br>
     grid: 10×10 cells &nbsp;|&nbsp; Δt = 60s substeps<br>
     λ = 1.5 W/m·K &nbsp;|&nbsp; ρ = 2300 kg/m³ &nbsp;|&nbsp; c = 880 J/kg·K<br>
     h_conv = 10 W/m²·K &nbsp;|&nbsp; T_air = 20°C &nbsp;|&nbsp; T_gnd = 10°C
@@ -43,14 +43,13 @@
   <svg id="temp-chart"></svg>
   <div style="margin-top:1.5rem;" class="section-label">incident solar irradiance W/m²</div>
   <svg id="solar-chart"></svg>
-  <div class="chart-tooltip" id="tooltip"></div>
+  <div class="chart-tooltip" id="chart-tooltip"></div>
 </div>
 
-<footer>
-  <span>ASCEND / explicit Euler FD thermal model / dummy sinusoidal solar profile</span>
-  <span>hover to inspect</span>
+<footer class="site-footer wrap">
+  <span>© 2026 Learning from the South</span>
+  <a href="data.html">Methodology →</a>
 </footer>
-
 <script src="js/floorTempByCell.js"></script>
 
 </body>
