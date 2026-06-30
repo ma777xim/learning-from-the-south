@@ -137,6 +137,7 @@ gS.append('g').attr('transform', `translate(0,${innerHS})`).call(
 
 // ── CROSSHAIR + TOOLTIP ──────────────────────────────────────────
 const tooltip = document.getElementById('chart-tooltip');
+console.log('tooltip element:', tooltip); // will log null
 const crossT = gT.append('line').attr('y1',0).attr('y2',innerHT)
   .style('stroke','var(--paper)').attr('stroke-width',0.5).attr('opacity',0);
 const crossS = gS.append('line').attr('y1',0).attr('y2',innerHS)

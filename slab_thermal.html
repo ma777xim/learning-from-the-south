@@ -6,11 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SlabTemp</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header class="site-header">
+  <site-header class="site-site-header">
     <nav class="nav wrap">
       <a href="index.html" class="nav__brand">SouthView <span>v0.0.1 (06/2026)</span></a>
         <div class="nav__links">
@@ -25,12 +26,9 @@
         h_conv = 10 W/m²·K &nbsp;|&nbsp; T_air = 20°C &nbsp;|&nbsp; T_gnd = 10°C
       </div>
     </nav>
-  </header>
-</body>
-
-<main>
-<section class="hero wrap">
-  <p class="eyebrow">Super dramatic climate analysis</p>
+  <main>
+    <section class="hero wrap">
+      <p class="eyebrow">Super dramatic climate analysis</p>
   <!--
   <video 
     class="video-background" autoplay muted loop playsinline preload="metadata" alt="Wildfire footage from NASA">
@@ -38,43 +36,87 @@
     type="video/mp4">
   </video>
   -->
-  <h1>Surface Temperature</h1>
-  <p class="lede">Surface Temperature simulation results</p>
-  <div class="hero__actions">
-    <a href="data.html" class="btn btn--primary">View code</a>
-    <a href="#overview" class="btn btn--ghost">Home</a>
-  </div>
-</section>
-</header>
+      <h1>Surface Temperature</h1>
+      <p class="lede">Surface Temperature simulation results</p>
+        <div class="hero__actions">
+          <a href="data.html" class="btn btn--primary">View code</a>
+          <a href="#overview" class="btn btn--ghost">Home</a>
+        </div>
+      </section>
+    </site-header>
+  </body>
+</main>
 
-<div class="legend">
-  <div class="legend-item">
-    <div class="legend-swatch" style="background: var(--cell-a); height:2px;"></div>
+<div class="chart-legend">
+  <div class="chart-legend-item">
+    <div class="chart-legend-swatch" style="background: var(--cell-a); height:2px;"></div>
     Cell [0,5] — flat[005] — low irradiance
   </div>
-  <div class="legend-item">
-    <div class="legend-swatch" style="background: var(--cell-b); height:2px;"></div>
+  <div class="chart-legend-item">
+    <div class="chart-legend-swatch" style="background: var(--cell-b); height:2px;"></div>
     Cell [9,4] — flat[094] — high irradiance
   </div>
-  <div class="legend-item">
-    <div class="legend-swatch dashed" style="color: var(--solar); height:2px;"></div>
+  <div class="chart-legend-item">
+    <div class="chart-legend-swatch dashed" style="color: var(--solar); height:2px;"></div>
     Solar irradiance (cell 094, W/m²)
   </div>
 </div>
 
-<div id="chart-container">
-  <div class="section-label">surface temperature °C</div>
-  <svg id="temp-chart"></svg>
-  <div style="margin-top:1.5rem;" class="section-label">incident solar irradiance W/m²</div>
-  <svg id="solar-chart"></svg>
-  <div class="chart-tooltip" id="chart-tooltip"></div>
+</head>
+<body>
+<div class="stripes"></div>
+<site-header>
+  <div class="title-block">
+    <h1>TUM Klima — ASCEND / Floor Slab Physics</h1>
+    <h2>7-Day Solar Thermal Response</h2>
+  </div>
+  <div class="meta">
+    sinusoidal solar profile &nbsp;·&nbsp; peak <b>800 W/m²</b> at noon<br>
+    T<sub>air</sub> = <b>20°C</b> &nbsp;·&nbsp; T<sub>gnd</sub> = <b>10°C</b> &nbsp;·&nbsp; h<sub>conv</sub> = <b>10 W/m²·K</b><br>
+    explicit Euler FD &nbsp;·&nbsp; Δt = 60s &nbsp;·&nbsp; 10×10 grid
+  </div>
+</site-header>
+
+<div class="stats">
+  <div class="sc">
+    <div class="v">~29.5<span>°C</span></div>
+    <div class="l">daily peak (periodic state)</div>
+  </div>
+  <div class="sc">
+    <div class="v">~14.7<span>°C</span></div>
+    <div class="l">nightly minimum</div>
+  </div>
+  <div class="sc">
+    <div class="v">~14.8<span>°C</span></div>
+    <div class="l">daily swing amplitude</div>
+  </div>
+  <div class="sc">
+    <div class="v">~48<span>h</span></div>
+    <div class="l">hours to periodic steady state</div>
+  </div>
 </div>
 
-<footer class="site-footer wrap">
-  <span>© 2026 Learning from the South</span>
-  <a href="data.html">Methodology →</a>
-</footer>
-<script src="js/floorTempByCell.js"></script>
+<div class="chart-wrap">
+  <div class="clabel">surface temperature °C — avg / min / max across 10×10 grid</div>
+  <svg id="main-svg"></svg>
+  <div class="tt" id="tt"></div>
+</div>
+
+<div class="chart-legend">
+  <div class="li"><div class="ls" style="background:var(--magma6)"></div> avg temp</div>
+  <div class="li"><div class="ls" style="background:var(--magma6);opacity:0.2;height:12px;"></div> min/max band</div>
+  <div class="li"><div class="ls" style="background:var(--solar-c);opacity:0.5;height:8px;"></div> solar irradiance (scaled)</div>
+  <div class="li"><div class="ls" style="background:var(--fog);border-top:1px dashed var(--fog);"></div> T_air = 20°C</div>
+  <div class="li"><div class="ls" style="background:var(--ice);border-top:1px dashed var(--ice);"></div> T_eq = 14°C (no-solar baseline)</div>
+</div>
+
+<site-footer>
+  <span>ASCEND / explicit Euler FD / sinusoidal dummy solar / 7 days 168 hours</span>
+  <span>hover to inspect</span>
+</site-footer>
+
+<script> src="js/slabEquilibrium.js"</script>
+<script> src="js/floorTempByCell.js"</script>
 
 </body>
 </html>
