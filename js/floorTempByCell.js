@@ -67,7 +67,7 @@ const pathB = gT.append('path').datum(DATA.temp_b)
 [pathA, pathB].forEach(p => {
   const len = p.node().getTotalLength();
   p.attr('stroke-dasharray', len).attr('stroke-dashoffset', len)
-   .transition().duration(2500).ease(d3.easeCubicInOut)
+   .transition().duration(3000).ease(d3.easeCubicInOut)
    .attr('stroke-dashoffset', 0);
 });
 
@@ -112,17 +112,17 @@ const lineSol = d3.line()
   .curve(d3.curveCatmullRom.alpha(0.5));
 
 gS.append('path').datum(DATA.solar_b)
-  .style('fill', 'var(--solar)').attr('fill-opacity', 0.08)
+  .style('fill', 'var(--solar)').attr('fill-opacity', 0.01)
   .attr('d', areaSol);
 
 const pathSol = gS.append('path').datum(DATA.solar_b)
-  .style('fill','none').style('stroke','var(--solar)').attr('stroke-width', 1.2)
+  .style('fill','none').style('stroke','var(--solar)').attr('stroke-width', 0.8)
   .attr('stroke-dasharray','4,3')
   .attr('d', lineSol);
 
 const lenS = pathSol.node().getTotalLength();
 pathSol.attr('stroke-dasharray', `4,3 ${lenS}`).attr('stroke-dashoffset', lenS)
-  .transition().duration(1800).ease(d3.easeCubicInOut)
+  .transition().duration(3000).ease(d3.easeCubicInOut)
   .attr('stroke-dashoffset', 0);
 
 gS.append('g').call(

@@ -31,10 +31,10 @@ def br(lineLength, arrayLength):
         print(f"\n{char * lineLength * 10}\n\n")
         
 def cat():
-    print(f"\n──────▄▀▄─────▄▀▄")
-    print(f"─────▄█░░▀▀▀▀▀░░█▄")
-    print(f"─▄▄──█░░░░░░░░░░░█──▄▄")
-    print(f"█▄▄█─█░░▀░░┬░░▀░░█─█▄▄█")
+    print(f"\n  ─▄▀▄─────▄▀▄    ")
+    print(f"    ▄█░░▀▀▀▀▀░░█▄   ")
+    print(f"    █░░░░░░░░░░░█   ")
+    print(f"    █░░▀░░┬░░▀░░█   ")
 
 # sol data
 #<dummy>
@@ -89,9 +89,9 @@ T_init = 0  # ← this line is missing
 print(f"initial temperature T_init: {T_init} °C")
 # etc.
 
-thickness = float(0.2)
+thickness = float(0.5)
 print(f"\nslab thickness: {int(thickness * 1000)}mm")
-density = float(2300)
+density = float(3000)
 print(f"mat density: {density}")
 heatCapacity = float(880)
 print(f"mat heat capacity: {heatCapacity}")
@@ -99,7 +99,7 @@ absorptionCoefficient = float(0.8)
 print(f"mat absorption coefficient: {absorptionCoefficient}")
 thermalConductivity = float(1.5)
 print(f"mat thermal conductivity: {thermalConductivity}")
-T_ground = float(10)
+T_ground = float(T_air)
 print(f"\nground temp T_ground: {T_ground}")
 outputHourOfDay = int(14)
 h_conv = float(10.0)  # W/m²·K — typical indoor natural convection
