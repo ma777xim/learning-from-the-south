@@ -19,12 +19,6 @@
           <a href="data.html">Methodology</a>
           <a href="slab_thermal.html" aria-current="page">SlabTemp</a>
         </div>
-      <div class="meta">
-        material: concrete &nbsp; |&nbsp; location: interior<br>
-        grid: 10 × 10 cells &nbsp;|&nbsp; Δt = 60s<br>
-        λ = 1.5 W/m·K &nbsp;|&nbsp; ρ = 2300 kg/m³ &nbsp;|&nbsp; c = 880 J/kg·K<br>
-        h_conv = 10 W/m²·K &nbsp;|&nbsp; T_air = 20°C &nbsp;|&nbsp; T_gnd = 10°C
-      </div>
     </nav>
   <main>
     <section class="hero wrap">
@@ -59,11 +53,7 @@
     Solar irradiance (cell 094, W/m²)
   </div>
 </div>
-  <div class="meta">
-    sinusoidal solar profile &nbsp;·&nbsp; peak <b>800 W/m²</b> at noon<br>
-    T<sub>air</sub> = <b>20°C</b> &nbsp;·&nbsp; T<sub>gnd</sub> = <b>10°C</b> &nbsp;·&nbsp; h<sub>conv</sub> = <b>10 W/m²·K</b><br>
-    explicit Euler FD &nbsp;·&nbsp; Δt = 60s &nbsp;·&nbsp; 10×10 grid
-  </div>
+
 
 <div class="stats">
   <div class="sc">
@@ -83,6 +73,16 @@
     <div class="l">hours to periodic steady state</div>
   </div>
 </div>
+
+  <div class="meta">
+    material: concrete &nbsp; |&nbsp; location: interior<br>
+    grid: 10 × 10 cells &nbsp;|&nbsp; Δt = 60s<br>
+    λ = 1.5 W/m·K &nbsp;|&nbsp; ρ = 2300 kg/m³ &nbsp;|&nbsp; c = 880 J/kg·K<br>
+    h_conv = 10 W/m²·K &nbsp;|&nbsp; T_air = 20°C &nbsp;|&nbsp; T_gnd = 10°C
+    sinusoidal solar profile &nbsp;·&nbsp; peak <b>800 W/m²</b> at noon<br>
+    T<sub>air</sub> = <b>20°C</b> &nbsp;·&nbsp; T<sub>gnd</sub> = <b>10°C</b> &nbsp;·&nbsp; h<sub>conv</sub> = <b>10 W/m²·K</b><br>
+    explicit Euler FD &nbsp;·&nbsp; Δt = 60s &nbsp;·&nbsp; 10×10 grid<br>
+  </div>
 
 <div class="chart-wrap">
   <div class="clabel">surface temperature °C — avg / min / max across 10×10 grid</div>
