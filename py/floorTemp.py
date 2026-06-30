@@ -66,6 +66,8 @@ raw = [
     for cell in range(num_cells)
 ]
 
+print(raw)
+
 # 3. wrap in mock tree
 radiation_tree = MockDataTree(raw)
 #-------------------------------------
